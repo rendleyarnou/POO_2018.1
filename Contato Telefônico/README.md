@@ -1,16 +1,18 @@
 # 01_contato
 
 * O que você fez?
-	<p>.</p>
+	<p>Implementei a atividade com base nos canhecimentos 
+  já adquiridos no semestre anterior.</p>
 
 * Com quem você fez?
-	<p>.</p>
+	<p>Consegui fazer a atividade sozinho.</p>
 
 * O que você aprendeu e sabe fazer?
-	<p>.</p>
+	<p>Consegui entender um pouco mais sobre a linguagem.</p>
 
 * O que tem dificuldade ainda?
-	<p>.</p>
+	<p>Em implementar alguns trechos de código, mas com base em leituras
+	da apostila consegui implementar e entender o que deveria ser feito.</p>
 
 * Quanto tempo levou para fazer a atividade
-	<p>.</p>
+	<p>Para pensar na solução e implementar o código levei cerca de 8 horas.</p>
