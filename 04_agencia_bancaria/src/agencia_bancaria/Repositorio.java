@@ -2,52 +2,78 @@ package agencia_bancaria;
 
 import java.util.ArrayList;
 
-public class Repositorio<T> {
+//CLASSE ELEMENTO
+class Elemento<T>{
+	public String key;
+	public T value;
 	
-	private ArrayList<T> lista;
-	private String typename;
+	public Elemento(String key, T value) {
+		this.key = key;
+		this.value = value;
+	}
+	public String toString() {
+		return "" + key + ":" + value;
+	}
+}
 
+//CLASSE REPOSITORIO
+public class Repositorio <T>{	
+	
+	private ArrayList<Elemento<T>> vet;
+	private String typename;
+	private int nextId = 0;
+	
 	public Repositorio(String typename) {
-		lista = new ArrayList<T>();
+		vet = new ArrayList<Elemento<T>>();
 		this.typename = typename;
 	}
-
+	
+	public void add(String key, T t) {
+		for(Elemento<T> elem : vet)
+			if(elem.key.equals(key))
+				throw new RuntimeException("fail: " + typename + " " + key + " ja existe");
+		vet.add(new Elemento<T>(key, t));
+	}
+	
 	public void add(T t) {
-		for (T elem : lista)
-			if (elem.equals(t)) {
-				elem = t;
+		String key = "" + nextId;
+		nextId += 1;
+		
+		for(Elemento<T> elem : vet)
+			if(elem.key.equals(key)) {
+				elem.value = t;
 				return;
 			}
-		lista.add(t);
+		vet.add(new Elemento<T>(key, t));
 	}
 	
-	public T get(T t) {
-		for (T elem : lista)
-			if (lista.equals(t))
-				return elem;
-		throw new RuntimeException("fail: " + typename + " " + t + " não existe!");
+	T get(String key){
+		for(Elemento<T> elem : vet)
+			if(elem.key.equals(key))
+				return elem.value;
+		throw new RuntimeException("fail: " + typename + " " + key + " nao existe");
 	}
 	
-	public void remove(T t) {
-		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).equals(t)) {
-				lista.remove(i);
+	void remove(String key){
+		for(int i = 0; i < vet.size(); i++) {
+			if(vet.get(i).key.equals(key)) {
+				vet.remove(i);
 				return;
 			}
 		}
-		throw new RuntimeException("fail: " + typename + " " + t + " não existe!");
+		throw new RuntimeException("fail: " + typename + " " + key + " nao existe");
 	}
 	
-	public ArrayList<T> getAll() {
+	ArrayList<T> getAll(){
 		ArrayList<T> all = new ArrayList<T>();
-		for (T elem : lista)
-			all.add(elem);
+		for(Elemento<T> elem : vet)
+			all.add(elem.value);
 		return all;
 	}
-
+	
 	public String toString() {
 		String saida = "";
-		for (T elem : lista)
+		for(Elemento<T> elem : vet)
 			saida += elem + "\n";
 		return saida;
 	}

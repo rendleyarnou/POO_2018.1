@@ -1,4 +1,4 @@
-package servico_de_anotacoes;
+package twitter;
 
 import java.util.ArrayList;
 
@@ -78,3 +78,4 @@ public class Repositorio <T>{
 		return saida;
 	}
 }
+

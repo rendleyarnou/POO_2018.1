@@ -83,20 +83,25 @@ public class Agencia {
 		}
 		return saida;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////
 	// LOGIN
-	public void login(String username) {
+	public boolean login(String username) {
 		if (user != null) {
 			throw new RuntimeException("Fail: já existe alguém logado.");
 		}
-		if (username == null) {
-			throw new RuntimeException("Fail: " + username + " é nulo.");
+		if (username.equals(null)) {
+			throw new RuntimeException("Fail: é nulo.");
 		}
 		for (Cliente cli : clientes.getAll()) {
 			if(cli.getIdCliente().equals(username)) {
-
 				this.user = cli;
+				return true;
+			}else {
+				throw new RuntimeException("Fail: usuário não existe.");
 			}
 		}
+		return false;
 	}
 	// LOGOUT
 	public void logout() {

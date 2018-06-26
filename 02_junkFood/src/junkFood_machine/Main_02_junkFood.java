@@ -42,7 +42,9 @@ public class Main_02_junkFood {
 			String comando[] = linha.split(" ");
 			String opcao = comando[0];
 
+			try {
 			switch (opcao) {
+			
 			case "iniciar":
 				maquina = new Maquina(Integer.parseInt(comando[1]), Integer.parseInt(comando[2]));
 				System.out.println("Done! iniciado uma maquina com " + comando[1] + " espirais!");
@@ -93,6 +95,9 @@ public class Main_02_junkFood {
 				System.out.println("Comando não encontrado!");
 				break;
 			}
+		} catch (Exception e) {
+				System.out.println(e.getMessage());
+		}
 		}
 	}
 }

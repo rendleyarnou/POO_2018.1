@@ -26,7 +26,7 @@ public class Usuario {
 		}
 		for (Nota note : notas.getAll()) {
 			if(note.titulo.equals(titulo)) {
-				notas.remove(note);
+				notas.remove(note.texto);
 				return true;
 			}
 		}

@@ -1,7 +1,5 @@
 package agencia_bancaria;
 
-import javax.management.RuntimeErrorException;
-
 public class Cliente {
 	private String idCliente;
 	private Repositorio<Conta> contas;

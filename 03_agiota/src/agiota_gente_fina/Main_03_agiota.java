@@ -2,6 +2,12 @@ package agiota_gente_fina;
 
 import java.util.Scanner;
 /*
+
+ERRO NÃO CORRIGIDO
+apagar as transações do batman
+
+
+
 COMANDOS PARA INICIAR O CONTATO
 
 init 10000
@@ -22,6 +28,7 @@ receber Sena 100
 lscli Batman
 lscli Thanos
 lscli Sena
+
 
 */
 public class Main_03_agiota {

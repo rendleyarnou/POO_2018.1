@@ -2,6 +2,39 @@ package agencia_bancaria;
 
 import java.util.Scanner;
 
+/*
+
+addcli Rendley
+addcli Arnou
+addcli David
+addcli Sena
+login Rendley
+deposito 1 500
+saque 1 125
+logout
+login Arnou
+deposito 2 1000
+saque 2 250
+logout
+login David
+deposito 3 250
+saque 2 50
+logout
+login Sena
+deposito 4 125
+saque 4 25
+logout
+login Arnou
+transf 2 4 125
+transf 2 3 250
+saque
+extrato
+show
+sholl
+
+
+ */
+
 public class Main_04_agencia_bancaria {
 	public static void main(String[] args) {
 		Agencia agencia = new Agencia();
@@ -33,8 +66,9 @@ public class Main_04_agencia_bancaria {
 					System.out.print(agencia.toString());
 					break;
 				case "login":
-					agencia.login(comando[1]);
+					if(agencia.login(comando[1])) {
 					System.out.println("Done! " + comando[1] + " logado.");
+					}
 					break;
 				case "logout":
 					agencia.logout();
